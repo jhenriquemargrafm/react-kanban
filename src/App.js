@@ -23,6 +23,19 @@ export default function App() {
       return [...existingTasks, newTask];
     });
   };
+
+  const updateTask = (id, title, state) => {
+    console.log('hello');
+    setTasks((existingTasks) => {
+      return existingTasks.map((task) => {
+        if (task.id === id) {
+          return { ...task, title, state };
+        } else {
+          return task;
+        }
+      });
+    });
+  };
   
   
   return (
@@ -33,7 +46,23 @@ export default function App() {
           <TaskList 
             title="Pendente" 
             onAddTask={addTask}
-            tasks={tasks}
+            taskState="Pendente"
+            tasks={tasks.filter((t) => t.state === "Pendente")}
+            onTaskUpdate={updateTask}
+          />
+          <TaskList 
+            title="Fazendo" 
+            onAddTask={addTask}
+            taskState="Fazendo"
+            tasks={tasks.filter((t) => t.state === "Fazendo")}
+            onTaskUpdate={updateTask}
+          />
+          <TaskList 
+            title="Completa" 
+            onAddTask={addTask}
+            taskState="Completa"
+            tasks={tasks.filter((t) => t.state === "Completa")}
+            onTaskUpdate={updateTask}
           />
         </div>
       </div>
