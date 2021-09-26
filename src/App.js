@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./styles.css";
 import Navbar from "./components/Navbar/Navbar";
-import Navbar from "./components/Footer/Footer";
 import TaskList from "./components/TaskList/TaskList";
 
 let idAcc = 0;
@@ -73,7 +72,6 @@ export default function App() {
             onDeleteTask={deleteTask}
           />
         </div>
-        <Footer />
       </div>
     </div>
   );
