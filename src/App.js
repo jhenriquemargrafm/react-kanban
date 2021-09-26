@@ -37,6 +37,11 @@ export default function App() {
     });
   };
   
+  const deleteTask = (id) => {
+    setTasks((exitingTasks) => {
+      return exitingTasks.filter((task) => task.id !== id);
+    });
+  };
   
   return (
     <div className="App">
@@ -49,6 +54,7 @@ export default function App() {
             taskState="Pendente"
             tasks={tasks.filter((t) => t.state === "Pendente")}
             onTaskUpdate={updateTask}
+            onDeleteTask={deleteTask}
           />
           <TaskList 
             title="Fazendo" 
@@ -56,6 +62,7 @@ export default function App() {
             taskState="Fazendo"
             tasks={tasks.filter((t) => t.state === "Fazendo")}
             onTaskUpdate={updateTask}
+            onDeleteTask={deleteTask}
           />
           <TaskList 
             title="Completa" 
@@ -63,6 +70,7 @@ export default function App() {
             taskState="Completa"
             tasks={tasks.filter((t) => t.state === "Completa")}
             onTaskUpdate={updateTask}
+            onDeleteTask={deleteTask}
           />
         </div>
       </div>
