@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./styles.css";
 import Navbar from "./components/Navbar/Navbar";
 import TaskList from "./components/TaskList/TaskList";
-
+//teste
 let idAcc = 0;
 const generateId = () => {
   idAcc = idAcc + 1;
